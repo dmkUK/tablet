@@ -21,8 +21,8 @@ I took many wrong turns, wondering why nothing was happening when I tried alteri
 `cat /usr/lib/udev/hwdb.d/60-sensor.hwdb | grep -i 'toshiba'` to filter down to the tablet manufacturer  
 `udevadm info -q path -n /dev/iio:device*` finds the sensor in this case 'INVN6500' at 'device0'  
 `udevadm info --export-db` to verify the sensor is detected, returns the platform, name and more for the sensor  
-`udevadm info --export-db | grep iio` to filter down to the sensor 
-`gdbus introspect --system --dest net.hadess.SensorProxy --object-path /net/hadess/SensorProxy`  
+`udevadm info --export-db | grep iio` to filter down to the sensor  
+`gdbus introspect --system --dest net.hadess.SensorProxy --object-path /net/hadess/SensorProxy` check whether a sensor is detected  
 `monitor-sensor` to check the sensors output  
 `sudo dmesg | grep -i toshiba`  diagnostic messages for the tablet manufacturer (finds "DMI: TOSHIBA TOSHIBA WT10-A-102/Type2")  
 `sudo dmesg | grep -i invn6500` diagnostic messages for the sensor (finds the sensor was using identity matrix ie. no change)  
