@@ -1,0 +1,15 @@
+# This file should reside in /etc/udev/hwdb.d
+# The contents take precedence over /user/lib/udev/hwdb.d/60-sensor.hwdb and set the correct orientation of the accelerometer.
+# To load the new rules:
+#   sudo systemd-hwdb update
+#   sudo udevadm trigger -v -p DEVNAME=/dev/iio:deviceXXX
+# (note: /dev/iio:deviceXXX is a file where XXX signifies the device number eg device0)
+#   sudo systemctl restart iio-sensor-prxy.service
+#
+#########################################
+# Toshiba
+#########################################
+#
+# Toshiba Encore WT10A-102 tablet
+sensor:modalias:acpi:INVN6500*:dmi:*:svnTOSHIBA:pnTOSHIBAWT10-A-102:*
+ ACCEL_MOUNT_MATRIX=0, -1, 0; -1, 0, 0; 0, 0, 1
