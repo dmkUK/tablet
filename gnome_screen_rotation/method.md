@@ -1,7 +1,7 @@
 # How I got there
 (Around the houses and up the garden path)
 
-I took many wrong turns, wondering why nothing was happening when I tried altering values in the sensor matrix. Error number one was researching rotation matrices (this is about direction not rotation) and number two was not watching the indentation, **This is _extremely_ important**
+I took many wrong turns, wondering why nothing was happening when I tried altering values in the sensor matrix. Error number one was researching rotation matrices (this is about direction not rotation) and number two was not watching the indentation, **this is _extremely_ important**.
 
 ## Commands
 `cat /usr/lib/udev/hwdb.d/60-sensor.hwdb` to see the whole configuration file  
@@ -24,3 +24,4 @@ I took many wrong turns, wondering why nothing was happening when I tried alteri
 3. https://github.com/systemd/systemd
 4. https://www.freedesktop.org/software/systemd/man/hwdb.html
 5. https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=dfc57732ad38f93ae6232a3b4e64fd077383a0f1
+
