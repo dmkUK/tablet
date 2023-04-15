@@ -15,8 +15,8 @@ sensor:modalias:acpi:INVN6500*:dmi:*:svnTOSHIBA:pnTOSHIBAWT10-A-103:*
 ```
 It therefore only needs a file at `/etc/udev/hwdb.d/61-sensor-local.hwdb` containing the lines:
 ```
-# Toshiba Encore WT10A tablet
-sensor:modalias:acpi:INVN6500*:dmi:*:svnTOSHIBA:pnTOSHIBAWT10-A-102:*
+# Toshiba Encore WT10-A-102 tablet
+sensor:modalias:acpi:INVN6500*:dmi:*svnTOSHIBA:pnTOSHIBAWT10-A-102*
  ACCEL_MOUNT_MATRIX=0, -1, 0; -1, 0, 0; 0, 0, 1
 ``` 
  as per the insructions in `/usr/lib/udev/hwdb.d/60-sensor.hwdb`
