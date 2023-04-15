@@ -44,10 +44,11 @@ sensor:modalalias:acpi:INV6500*:dmi:*:svnTOSHIBA:pnTOSHIBAWT10-A-103:*
 ```
 
 Where the format is:
-
-```sensor:modalias:<parent modalias pattern>:dmi:<dmi pattern>
+```
+sensor:modalias:<parent modalias pattern>:dmi:<dmi pattern>
 or 
-sensor:<label>:modalias:<parent modalias pattern>:dmi:<dmi pattern>```
+sensor:<label>:modalias:<parent modalias pattern>:dmi:<dmi pattern>
+```
 
 Here the match is made against `acpi:INV6500*`(sensor parent modalias plus wildcard) and `:svnTOSHIBA:pnTOSHIBAWT10-A-103:`(dmi system vendor and product name surrounded by wildcards). The colons surrounding the vendor and product name appear superflous. The matrix describes swapping and inverting the x and y directions.
 
