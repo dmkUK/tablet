@@ -10,6 +10,6 @@
 # Toshiba
 #########################################
 #
-# Toshiba Encore WT10A-102 tablet
-sensor:modalias:acpi:INVN6500*:dmi:*:svnTOSHIBA:pnTOSHIBAWT10-A-102:*
+# Toshiba Encore WT10-A-102 tablet
+sensor:modalias:acpi:INVN6500*:dmi:*svnTOSHIBA:pnTOSHIBAWT10-A-102*
  ACCEL_MOUNT_MATRIX=0, -1, 0; -1, 0, 0; 0, 0, 1
