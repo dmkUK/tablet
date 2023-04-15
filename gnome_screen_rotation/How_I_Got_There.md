@@ -25,11 +25,11 @@ This can be used to find the device modalias in the sensor parent with ``cat /sy
 acpi:INVN6500:
 ```
 
-<! The device label (if it exists) can be found in the label file of the sensor with ``cat /sys/`udevadm info -q path -n /dev/iio:device0`/label``. In my case this returns:>
-<!```>
-<!cat: 'sys/devices/platform/80860F41:02/i2c-2/i2c-INVN6500:00/iio:device0/label': No such file or directory>
-<!```>
-<!dont know where this came from>
+<!-- The device label (if it exists) can be found in the label file of the sensor with ``cat /sys/`udevadm info -q path -n /dev/iio:device0`/label``. In my case this returns: -->
+<!-- ``` -->
+<!-- cat: 'sys/devices/platform/80860F41:02/i2c-2/i2c-INVN6500:00/iio:device0/label': No such file or directory -->
+<!-- ``` -->
+<!-- dont know where this came from -->
 ### The hwdb.d file
 
 It's useful to see if there is an existing similar configuration in the hwdb.d file so `cat /usr/lib/udev/hwdb.d/60-sensor.hwdb | grep -i -A1 'toshiba'`. This returns:
