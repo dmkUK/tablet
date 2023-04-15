@@ -92,7 +92,7 @@ Time to test using the diagnostics from https://gitlab.freedesktop.org/hadess/ii
 |---|---|---|---|---|
 |top up|y=1|left up|x=-1|![screen top up](diagrams/screen-top-up.png "Diagram of screen rotated right top up")|
 |left up|x=-1|normal|y=1|![screen left up](diagrams/screen-left-up.png "Diagram of screen rotated left side up")|
-|bottom up|y=-1|right up|x=1|![screen bottom up](diagams/creen-bottom-up.png "Diagram of screen rotated bottom side up")|
+|bottom up|y=-1|right up|x=1|![screen bottom up](diagrams/screen-bottom-up.png "Diagram of screen rotated bottom side up")|
 |right up|x=1|bottom up|y=-1|![screen right up](diagrams/screen-right-up.png "Diagram of screen rotated right side up")|
 
 From this it can be seen that x and y need to be swapped and negated ie *x = -y* and *y=-x* and *z* has no bearing so can stay the same. This can be written as:
