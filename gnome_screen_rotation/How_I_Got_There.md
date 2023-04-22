@@ -90,9 +90,9 @@ I think a more mathematically correct understanding is that the matrix is a form
 
 ||*x* is up|*y* is up|*z* is up|multiplied by||||results in||||
 |---|---|---|---|---|---|---|---|---|---|---|---|
-|*x*|<style>{color:red;}</style>**1**|<style>{color:red;}</style>0|<style>{color:red;}</style>0||<style>{color:red;}</style>**0**|0|1||**0**|0|1|
-|*y*|0|1|0||<style>{color:red;}</style>0|-1|0||0|-1|0|
-|*z*|0|0|1||<style>{color:red;}</style>1|0|0||1|0|0|
+|*x*|***1***|**0**|**0**||***0***|0|1||***0***|0|1|
+|*y*|0|1|0||**0**|-1|0||0|-1|0|
+|*z*|0|0|1||**1**|0|0||1|0|0|
 
 The multiplication works by multiplying the numbers of the first row with the first column in the second matrix and adding them up, then the first row with the second column etc. As the first matrix is the identity with no -1 values and only -1, 0, 1 values exist in the matrices, with only one entry per row or column, it's really just a case of finding the 1 in the row of the first matrix and selecting the number in the corresponding column of the second and then filling in the zeroes. The result is always the same as the orientation matrix.
 
