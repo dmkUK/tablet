@@ -58,6 +58,8 @@ OK, so I was lucky and had a close match. A simple edit to the product name and 
 
 The orientation matrix is used to allow for the possible variations in mounting the accelerometer in the device. Possible values in the 3 x 3 matrix are 1, 0, and -1. For each axis of the accelerometer, a line in the matrix defines the mapping to an axis of the output. The first line of the matrix (first 3 numbers of the hwdb.d file) define whether data from the accelerometers x axis is assigned to the x, y, or z axis of output via 1 (select), 0 (ignore) or -1 (negated). Each line should have one and only one output.
 
+This is how I came to understand the matrix after some false starts. It made sense to me as a series of switches mapping an input to an output as follows.
+
 |inputs from accelerometer||x|y|z|outputs from matrix|
 |---|---|---|---|---|---|
 ||(*x*) :arrow_right:|*x out*|*y out*|*z out*|:arrow_right: output|
@@ -83,6 +85,16 @@ In the hwdb.d file this would be written as `1,0,0;0,1,0;0,0,1`
 
 swaps *x* and *z* and negates the *y* value.  
 In the hwdb.d file this would be written as `0,0,1;0,-1,0;1,0,0`
+
+I think a more mathematically correct understanding is that the matrix is a form of logical matrix known as a permutation matrix in the field of vector space orientation. Here the number of columns in the first matrix must equal the number of rows in the second and the result of the multiplication has the same number of rows as the first matrix and the same number of columns as the second.
+
+||*x* is up|*y* is up|*z* is up|multiplied by||||results in||||
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|*x*|<style>{color:red;}</style>**1**|<style>{color:red;}</style>0|<style>{color:red;}</style>0||<style>{color:red;}</style>**0**|0|1||**0**|0|1|
+|*y*|0|1|0||<style>{color:red;}</style>0|-1|0||0|-1|0|
+|*z*|0|0|1||<style>{color:red;}</style>1|0|0||1|0|0|
+
+The multiplication works by multiplying the numbers of the first row with the first column in the second matrix and adding them up, then the first row with the second column etc. As the first matrix is the identity with no -1 values and only -1, 0, 1 values exist in the matrices, with only one entry per row or column, it's really just a case of finding the 1 in the row of the first matrix and selecting the number in the corresponding column of the second and then filling in the zeroes. The result is always the same as the orientation matrix.
 
 ## Testing the tablet
 
@@ -192,3 +204,6 @@ sudo systemctl restart iio-sensor-proxy.service
 4. https://www.freedesktop.org/software/systemd/man/hwdb.html
 5. https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=dfc57732ad38f93ae6232a3b4e64fd077383a0f1
 6. https://people.skolelinux.org/pere/blog/Modalias_strings___a_practical_way_to_map__stuff__to_hardware.html
+7. https://en.wikipedia.org/wiki/Orientation_(vector_space)
+8. https://en.wikipedia.org/wiki/Logical_matrix
+9. https://en.wikipedia.org/wiki/Permutation_matrix
