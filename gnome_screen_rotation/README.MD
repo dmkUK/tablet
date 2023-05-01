@@ -20,3 +20,5 @@ sensor:modalias:acpi:INVN6500*:dmi:*svnTOSHIBA:pnTOSHIBAWT10-A-102*
  ACCEL_MOUNT_MATRIX=0, -1, 0; -1, 0, 0; 0, 0, 1
 ``` 
  as per the insructions in `/usr/lib/udev/hwdb.d/60-sensor.hwdb`
+
+[How I got there](/How_I_Got_There.md).
