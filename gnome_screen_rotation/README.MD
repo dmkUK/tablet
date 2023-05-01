@@ -21,4 +21,4 @@ sensor:modalias:acpi:INVN6500*:dmi:*svnTOSHIBA:pnTOSHIBAWT10-A-102*
 ``` 
  as per the insructions in `/usr/lib/udev/hwdb.d/60-sensor.hwdb`
 
-[How I got there](/How_I_Got_There/).
+[How I got there](/gnome_screen_rotation/How_I_Got_There.md).
