@@ -50,7 +50,7 @@ or
 sensor:<label>:modalias:<parent modalias pattern>:dmi:<dmi pattern>
 ```
 
-Here the match is made against `acpi:INV6500*`(sensor parent modalias plus wildcard) and `:svnTOSHIBA:pnTOSHIBAWT10-A-103:`(dmi system vendor and product name surrounded by wildcards). The colons surrounding the vendor and product name appear superflous. The matrix describes swapping and inverting the x and y directions.
+Here the match is made against `acpi:INV6500*`(sensor parent modalias plus wildcard) and `:svnTOSHIBA:pnTOSHIBAWT10-A-103:`(dmi system vendor and product name surrounded by wildcards). The colons surrounding the vendor and product name appear superfluous. The matrix describes swapping and inverting the x and y directions.
 
 OK, so I was lucky and had a close match. A simple edit to the product name and update could possibly get me on my way. It would have done, however a typo (yes, one of those spaces) meant I could not solve this and so I went further into trying to figure out the matrices.
 
@@ -86,7 +86,7 @@ In the hwdb.d file this would be written as `1,0,0;0,1,0;0,0,1`
 swaps *x* and *z* and negates the *y* value.  
 In the hwdb.d file this would be written as `0,0,1;0,-1,0;1,0,0`
 
-I think a more mathematically correct understanding is that the matrix is a form of logical matrix known as a permutation matrix in the field of vector space orientation. Here the number of columns in the first matrix must equal the number of rows in the second and the result of the multiplication has the same number of rows as the first matrix and the same number of columns as the second.
+I think a more mathematically correct understanding is that the matrix is a form of [logical matrix](https://en.wikipedia.org/wiki/Logical_matrix) known as a [permutation matrix](https://en.wikipedia.org/wiki/Permutation_matrix) in the field of [vector space orientation](https://en.wikipedia.org/wiki/Orientation_(vector_space)). Here the number of columns in the first matrix must equal the number of rows in the second and the result of the multiplication has the same number of rows as the first matrix and the same number of columns as the second.
 
 ||*x* is up|*y* is up|*z* is up|multiplied by||||results in||||
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -111,6 +111,8 @@ Time to test using the diagnostics from https://gitlab.freedesktop.org/hadess/ii
 |bottom up|y=-1|right up|x=1|![screen bottom up](diagrams/screen-bottom-up.png "Diagram of screen rotated bottom side up")|
 |right up|x=1|bottom up|y=-1|![screen right up](diagrams/screen-right-up.png "Diagram of screen rotated right side up")|
 
+![incorrect orientation](diagrams/incorrect-orientation2.png "Diagram of incorrect orientation")
+
 From this it can be seen that x and y need to be swapped and negated ie *x = -y* and *y=-x* and *z* has no bearing so can stay the same. This can be written as:
 
 ||x|y|z||
@@ -123,6 +125,8 @@ swaps and negates *x* and *y* leaves *z* unchanged.
 In the hwdb.d file this would be written as `0,-1,0;-1,0,0;0,0,1`
 
 .....Which is exactly the same as the existing Toshiba entry in the hwdb.d. Doh!
+
+![corrected orientation](diagrams/corrected-orientation.png "Diagram of correected orientation")
 
 ## Creating the hwdb.d entry
 
